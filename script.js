@@ -53,6 +53,7 @@ function showNotice(){
 
 document.addEventListener("DOMContentLoaded", () => {
 
+
   /* ========================================
      MOBILE MENU
   ======================================== */
@@ -74,6 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const isOpen =
           navMenu.classList.contains("open");
+
 
         menuToggle.setAttribute(
           "aria-label",
@@ -117,6 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const year =
     document.getElementById("year");
+
 
   if (year) {
 
