@@ -4,304 +4,320 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Website informasi Desa Semparuk, Kecamatan Semparuk, Kabupaten Sambas, Kalimantan Barat.">
-  <title>Desa Semparuk — Kec. Semparuk, Kab. Sambas</title>
+  <title>Beranda — Desa Semparuk</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <header class="navbar" id="navbar">
-    <a href="#beranda" class="brand">
-      <img class="official-logo" src="logo-kabupaten-sambas.webp" alt="Lambang Kabupaten Sambas">
-      <span>
-        <strong>Desa Semparuk</strong>
-        <small>Kec. Semparuk, Kab. Sambas</small>
+<header class="navbar" id="navbar">
+
+  <a href="index.html" class="brand">
+    <img class="official-logo"
+         src="logo-kabupaten-sambas.png"
+         alt="Lambang Kabupaten Sambas">
+
+    <span>
+      <strong>Desa Semparuk</strong>
+      <small>Kec. Semparuk, Kab. Sambas</small>
+    </span>
+  </a>
+
+  <button class="menu-toggle"
+          id="menuToggle"
+          aria-label="Buka menu">
+    ☰
+  </button>
+
+  <nav id="navMenu">
+    <a class="active" href="index.html">Beranda</a>
+    <a href="tentang.html">Tentang</a>
+    <a href="galeri.html">Galeri</a>
+    <a href="berita.html">Berita</a>
+    <a href="peta.html">Peta</a>
+  </nav>
+
+</header>
+
+
+<main>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content reveal">
+
+      <span class="eyebrow light">
+        Website Resmi Desa Semparuk
       </span>
+
+      <h1>
+        Selamat Datang di<br>
+        <span>Desa Semparuk</span>
+      </h1>
+
+      <p>
+        Mengenal lebih dekat kehidupan, potensi, kegiatan,
+        dan informasi Desa Semparuk, Kecamatan Semparuk,
+        Kabupaten Sambas, Kalimantan Barat.
+      </p>
+
+      <div class="hero-actions">
+
+        <a href="tentang.html"
+           class="btn btn-primary">
+          Tentang Desa
+        </a>
+
+        <a href="berita.html"
+           class="btn btn-ghost">
+          Lihat Berita
+        </a>
+
+      </div>
+
+    </div>
+
+    <a class="scroll-down" href="tentang.html">
+      ↓
     </a>
 
-    <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">☰</button>
+  </section>
 
-    <nav id="navMenu">
-      <a class="active" href="#beranda">Beranda</a>
-      <a href="#tentang">Tentang</a>
-      <a href="#galeri">Galeri</a>
-      <a href="#berita">Berita</a>
-    </nav>
-  </header>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero" id="beranda">
-      <div class="hero-bg"></div>
-      <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
-        <span class="eyebrow light">Website Resmi Desa Semparuk</span>
-        <h1>Selamat Datang di<br><span>Desa Semparuk</span></h1>
+  <!-- STATISTIK -->
+
+  <section class="section">
+
+    <div class="container">
+
+      <div class="section-heading center reveal">
+
+        <span class="eyebrow">
+          Sekilas Desa
+        </span>
+
+        <h2>
+          Desa Semparuk dalam angka
+        </h2>
+
         <p>
-          Mengenal lebih dekat kehidupan, potensi, kegiatan, dan informasi
-          Desa Semparuk, Kecamatan Semparuk, Kabupaten Sambas, Kalimantan Barat.
+          Informasi singkat mengenai wilayah Desa Semparuk.
         </p>
-        <div class="hero-actions">
-          <a href="#tentang" class="btn btn-primary">Tentang Desa</a>
-          <a href="#berita" class="btn btn-ghost">Lihat Berita</a>
-        </div>
+
       </div>
-      <a class="scroll-down" href="#tentang">↓</a>
-    </section>
 
-    <!-- TENTANG -->
-    <section class="section" id="tentang">
-      <div class="container">
-        <div class="section-heading center reveal">
-          <span class="eyebrow">Tentang Desa</span>
-          <h2>Mengenal Desa Semparuk</h2>
-          <p>Profil singkat dan gambaran wilayah Desa Semparuk.</p>
+
+      <div class="v2-stats">
+
+        <div>
+          <b>1.351,30</b>
+          <span>HEKTARE WILAYAH</span>
         </div>
 
-        <div class="v2-stats">
-<div><b>1.351,30</b><span>HEKTARE WILAYAH</span></div>
-<div><b>04</b><span>DUSUN</span></div>
-<div><b>79400</b><span>KODE POS</span></div>
-<div><b>KB</b><span>KALIMANTAN BARAT</span></div>
-</div>
-<div class="about-grid">
-          <div class="about-photo reveal">
-            
-          </div>
-          <div class="about-copy reveal">
-            <span class="mini-label">Profil Desa</span>
-            <h3>Desa dengan potensi pertanian dan perkebunan</h3>
-            <p>
-              Desa Semparuk berada di Kecamatan Semparuk, Kabupaten Sambas,
-              Provinsi Kalimantan Barat. Wilayahnya berupa dataran rendah dengan
-              kondisi tropis dan lingkungan yang dikelilingi kawasan sungai.
-            </p>
-            <p>
-              Berdasarkan profil resmi desa, luas wilayah Desa Semparuk sekitar
-              <b>1.351,30 hektare</b> dan terbagi menjadi empat dusun:
-              Semparuk Sutera, Semparuk Kuala, Semparuk Lorong, dan Semparuk Sebangkau.
-            </p>
-            <a class="text-link" href="#profil">Lihat profil lengkap <span>→</span></a>
-          </div>
+        <div>
+          <b>04</b>
+          <span>DUSUN</span>
         </div>
 
-        <div class="info-cards" id="profil">
-          <article class="info-card reveal">
-            <div class="icon">⌖</div>
-            <h3>Wilayah Desa</h3>
-            <p>Topografi dataran rendah dengan sistem hidrologi irigasi.</p>
-            <ul>
-              <li>Utara: Sungai Sambas Besar</li>
-              <li>Selatan: Sungai Semparuk Sebangkau</li>
-              <li>Barat: Desa Singaraya</li>
-              <li>Timur: Desa Segedong, Kec. Tebas</li>
-            </ul>
-          </article>
-
-          <article class="info-card reveal">
-            <div class="icon">▣</div>
-            <h3>Potensi Desa</h3>
-            <p>Sektor pertanian dan perkebunan menjadi bagian penting dari wilayah desa.</p>
-            <ul>
-              <li>Sawah teririgasi: 20 Ha</li>
-              <li>Sawah tadah hujan: 879 Ha</li>
-              <li>Lahan perkebunan: 13 Ha</li>
-              <li>Lingkungan tropis dan perairan</li>
-            </ul>
-          </article>
+        <div>
+          <b>79400</b>
+          <span>KODE POS</span>
         </div>
+
+        <div>
+          <b>KB</b>
+          <span>KALIMANTAN BARAT</span>
+        </div>
+
       </div>
-    </section>
 
-    <!-- VISI MISI -->
-    <section class="vision section-muted">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="eyebrow">Semangat Desa</span>
-          <h2>Membangun Desa Semparuk<br>yang lebih maju</h2>
-        </div>
-
-        <div class="vision-grid">
-          <div class="vision-card reveal">
-            <div class="round-icon">⌂</div>
-            <h3>Desa yang Nyaman</h3>
-            <p>
-              Mendorong lingkungan desa yang tertata, aman, sehat, dan nyaman
-              untuk seluruh masyarakat.
-            </p>
-          </div>
-
-          <div class="vision-card reveal">
-            <div class="round-icon">✓</div>
-            <h3>Pelayanan Terbuka</h3>
-            <p>
-              Menyediakan informasi desa yang mudah diakses serta mendukung
-              pelayanan publik yang transparan.
-            </p>
-          </div>
-
-          <div class="vision-card reveal">
-            <div class="round-icon">↗</div>
-            <h3>Potensi Berkembang</h3>
-            <p>
-              Mengembangkan potensi pertanian, perkebunan, sumber daya manusia,
-              dan kegiatan ekonomi masyarakat.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="v2-services section">
-<div class="container"><div class="section-heading center">
-<span class="eyebrow">LAYANAN DESA</span><h2>Informasi yang mudah diakses.</h2>
-<p>Bagian ini siap dikembangkan menjadi layanan digital Desa Semparuk.</p></div>
-<div class="v2-service-grid">
-<article><b>01</b><h3>Administrasi Desa</h3><p>Informasi persyaratan dan alur pelayanan masyarakat.</p></article>
-<article><b>02</b><h3>Informasi Publik</h3><p>Publikasi agenda, pengumuman, dan informasi desa.</p></article>
-<article><b>03</b><h3>Potensi Desa</h3><p>Menampilkan potensi pertanian, perkebunan, dan masyarakat.</p></article>
-</div></div></section>
-<!-- GALERI -->
-    <section class="section" id="galeri">
-      <div class="container">
-        <div class="section-heading center reveal">
-          <span class="eyebrow">Dokumentasi</span>
-          <h2>Galeri Desa</h2>
-          <p>Ruang untuk menampilkan kegiatan dan potensi Desa Semparuk.</p>
-        </div>
-
-        <div class="gallery">
-          <figure class="gallery-item large reveal">
-            
-            <figcaption><span>Galeri Desa</span><strong>Keindahan alam</strong></figcaption>
-          </figure>
-          <figure class="gallery-item reveal">
-            
-            <figcaption><span>Potensi</span><strong>Lingkungan pedesaan</strong></figcaption>
-          </figure>
-          <figure class="gallery-item reveal">
-            
-            <figcaption><span>Potensi</span><strong>Lahan pertanian</strong></figcaption>
-          </figure>
-          <figure class="gallery-item reveal">
-            
-            <figcaption><span>Semparuk</span><strong>Alam Kalimantan Barat</strong></figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- BERITA -->
-    <section class="section news-section" id="berita">
-      <div class="container">
-        <div class="news-head reveal">
-          <div>
-            <span class="eyebrow">Berita Terkini</span>
-            <h2>Berita dan Informasi<br>Desa Semparuk</h2>
-          </div>
-          <button class="btn btn-primary" onclick="showNotice()">Lihat Semua Berita</button>
-        </div>
-
-        <div class="news-grid">
-          <article class="news-card reveal">
-            
-            <div class="news-body">
-              <span class="tag">Kegiatan Desa</span>
-              <h3>Musyawarah dan kegiatan pembangunan desa</h3>
-              <p>Ruang informasi untuk dokumentasi kegiatan dan agenda masyarakat Desa Semparuk.</p>
-              <a href="#kontak">Selengkapnya →</a>
-            </div>
-          </article>
-
-          <article class="news-card reveal">
-            
-            <div class="news-body">
-              <span class="tag">Potensi</span>
-              <h3>Pertanian sebagai salah satu kekuatan desa</h3>
-              <p>Potensi lahan pertanian menjadi bagian penting dalam kehidupan masyarakat setempat.</p>
-              <a href="#tentang">Selengkapnya →</a>
-            </div>
-          </article>
-
-          <article class="news-card reveal">
-            
-            <div class="news-body">
-              <span class="tag">Masyarakat</span>
-              <h3>Kebersamaan dan gotong royong masyarakat</h3>
-              <p>Tempat untuk menampilkan kabar terbaru, kegiatan sosial, dan cerita masyarakat desa.</p>
-              <a href="#galeri">Selengkapnya →</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- FEATURE -->
-    <section class="feature">
-      <div class="feature-red"></div>
-      <div class="container feature-grid">
-        <div class="feature-copy reveal">
-          <span class="eyebrow light">Profil Desa</span>
-          <h2>Semparuk, desa yang terus bertumbuh</h2>
-          <p>
-            Informasi desa dikemas sederhana agar masyarakat dan pengunjung
-            dapat mengenal Semparuk dengan lebih mudah.
-          </p>
-          <div class="feature-buttons">
-            <a href="#tentang" class="btn btn-light">Baca Profil</a>
-            <a href="#kontak" class="btn btn-outline-light">Kontak Desa</a>
-          </div>
-        </div>
-
-        <div class="feature-image reveal">
-          
-        </div>
-
-        <aside class="latest reveal">
-          <h3>Informasi Desa</h3>
-          <a href="#tentang"><b>01</b><span>Profil dan kondisi geografis</span></a>
-          <a href="#galeri"><b>02</b><span>Galeri kegiatan desa</span></a>
-          <a href="#berita"><b>03</b><span>Berita dan informasi terbaru</span></a>
-          <a href="#kontak"><b>04</b><span>Hubungi pemerintah desa</span></a>
-        </aside>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="contact section" id="kontak">
-      <div class="container contact-grid">
-        <div class="reveal">
-          <span class="eyebrow">Hubungi Kami</span>
-          <h2>Desa Semparuk</h2>
-          <p>
-            Desa Semparuk, Kecamatan Semparuk, Kabupaten Sambas,
-            Provinsi Kalimantan Barat, Indonesia.
-          </p>
-        </div>
-        <div class="contact-card reveal">
-          <div><span>Telepon</span><strong>082252371667</strong></div>
-          <div><span>Email</span><strong>semparuk0002@gmail.com</strong></div>
-          <div><span>Kode Pos</span><strong>79400</strong></div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-inner">
-      <div>
-        <strong>Desa Semparuk</strong>
-        <p>Kec. Semparuk, Kab. Sambas, Kalimantan Barat</p>
-      </div>
-      <p>© <span id="year"></span> Desa Semparuk. Website informasi desa.</p>
     </div>
-  </footer>
 
-  <button id="topBtn" class="top-btn" aria-label="Kembali ke atas">↑</button>
-  <div id="notice" class="notice">Bagian berita lengkap dapat diisi dengan berita resmi Desa Semparuk.</div>
+  </section>
 
-  <script src="script.js"></script>
+
+  <!-- VISI -->
+
+  <section class="vision section-muted">
+
+    <div class="container">
+
+      <div class="section-heading reveal">
+
+        <span class="eyebrow">
+          Semangat Desa
+        </span>
+
+        <h2>
+          Membangun Desa Semparuk
+          <br>
+          yang lebih maju
+        </h2>
+
+      </div>
+
+
+      <div class="vision-grid">
+
+        <div class="vision-card reveal">
+
+          <div class="round-icon">⌂</div>
+
+          <h3>
+            Desa yang Nyaman
+          </h3>
+
+          <p>
+            Mendorong lingkungan desa yang tertata,
+            aman, sehat, dan nyaman untuk seluruh masyarakat.
+          </p>
+
+        </div>
+
+
+        <div class="vision-card reveal">
+
+          <div class="round-icon">✓</div>
+
+          <h3>
+            Pelayanan Terbuka
+          </h3>
+
+          <p>
+            Menyediakan informasi desa yang mudah diakses
+            serta mendukung pelayanan publik yang transparan.
+          </p>
+
+        </div>
+
+
+        <div class="vision-card reveal">
+
+          <div class="round-icon">↗</div>
+
+          <h3>
+            Potensi Berkembang
+          </h3>
+
+          <p>
+            Mengembangkan potensi pertanian, perkebunan,
+            sumber daya manusia, dan kegiatan ekonomi masyarakat.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- LAYANAN -->
+
+  <section class="v2-services section">
+
+    <div class="container">
+
+      <div class="section-heading center">
+
+        <span class="eyebrow">
+          LAYANAN DESA
+        </span>
+
+        <h2>
+          Informasi yang mudah diakses.
+        </h2>
+
+        <p>
+          Bagian ini siap dikembangkan menjadi layanan
+          digital Desa Semparuk.
+        </p>
+
+      </div>
+
+
+      <div class="v2-service-grid">
+
+        <article>
+          <b>01</b>
+          <h3>Administrasi Desa</h3>
+          <p>
+            Informasi persyaratan dan alur pelayanan masyarakat.
+          </p>
+        </article>
+
+
+        <article>
+          <b>02</b>
+          <h3>Informasi Publik</h3>
+          <p>
+            Publikasi agenda, pengumuman,
+            dan informasi desa.
+          </p>
+        </article>
+
+
+        <article>
+          <b>03</b>
+          <h3>Potensi Desa</h3>
+          <p>
+            Menampilkan potensi pertanian,
+            perkebunan, dan masyarakat.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <div class="container footer-inner">
+
+    <div>
+      <strong>Desa Semparuk</strong>
+
+      <p>
+        Kec. Semparuk, Kab. Sambas,
+        Kalimantan Barat
+      </p>
+    </div>
+
+    <p>
+      © <span id="year"></span>
+      Desa Semparuk.
+      Website informasi desa.
+    </p>
+
+  </div>
+
+</footer>
+
+
+<button id="topBtn"
+        class="top-btn"
+        aria-label="Kembali ke atas">
+  ↑
+</button>
+
+
+<script src="script.js"></script>
+
 </body>
 </html>

@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
-<circle cx="80" cy="80" r="76" fill="#e51b23"/>
-<circle cx="80" cy="80" r="58" fill="#fff"/>
-<path d="M45 91h70v14H45zM55 76h50v15H55zM64 61h32v15H64z" fill="#e51b23"/>
-<path d="M38 108h84v8H38z" fill="#e51b23"/>
-<text x="80" y="50" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#171717">DESA</text>
-<text x="80" y="133" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#171717">SEMPARUK</text>
-</svg>
