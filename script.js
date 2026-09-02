@@ -226,3 +226,28 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    if (!menuToggle || !navMenu) {
+        console.error("Navbar tidak ditemukan!");
+        return;
+    }
+
+    menuToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+        menuToggle.classList.toggle("active");
+    });
+
+    // Tutup menu ketika link diklik
+    const navLinks = navMenu.querySelectorAll("a");
+
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            navMenu.classList.remove("active");
+            menuToggle.classList.remove("active");
+        });
+    });
+});
