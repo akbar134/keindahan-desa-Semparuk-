@@ -1,0 +1,2644 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Detail Pengaduan — Desa Semparuk</title>
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <style>
+
+    :root {
+
+      --blue: #052659;
+      --blue-dark: #021024;
+      --blue-light: #7da0ca;
+      --blue-pale: #c1e8ff;
+
+      --red: #e51b23;
+      --red-dark: #c90f17;
+
+      --ink: #171717;
+      --muted: #777;
+
+      --line: #ececec;
+      --soft: #f6f6f6;
+      --white: #fff;
+
+      --green: #24752a;
+      --orange: #d35400;
+
+      --shadow:
+        0 18px 55px rgba(0,0,0,.09);
+
+    }
+
+
+    * {
+
+      box-sizing: border-box;
+
+      margin: 0;
+
+      padding: 0;
+
+    }
+
+
+    body {
+
+      font-family: "Inter", sans-serif;
+
+      background: var(--soft);
+
+      color: var(--ink);
+
+      line-height: 1.6;
+
+    }
+
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    .navbar {
+
+      height: 76px;
+
+      background: rgba(5,38,89,.98);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      padding: 0 40px;
+
+      position: sticky;
+
+      top: 0;
+
+      z-index: 1000;
+
+      box-shadow:
+        0 5px 25px rgba(0,0,0,.12);
+
+    }
+
+
+    .brand {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      text-decoration: none;
+
+      color: white;
+
+    }
+
+
+    .official-logo {
+
+      width: 45px;
+
+      height: 45px;
+
+      object-fit: contain;
+
+    }
+
+
+    .brand strong {
+
+      display: block;
+
+      font-family:
+        "Plus Jakarta Sans",
+        sans-serif;
+
+      font-size: 16px;
+
+      line-height: 1.2;
+
+    }
+
+
+    .brand small {
+
+      display: block;
+
+      font-size: 11px;
+
+      color:
+        rgba(255,255,255,.65);
+
+      margin-top: 2px;
+
+    }
+
+
+    .nav-right {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+    }
+
+
+    .nav-link {
+
+      color:
+        rgba(255,255,255,.8);
+
+      text-decoration: none;
+
+      font-size: 13px;
+
+      font-weight: 600;
+
+      padding: 9px 14px;
+
+      border-radius: 999px;
+
+      transition: .25s;
+
+    }
+
+
+    .nav-link:hover {
+
+      background:
+        rgba(255,255,255,.1);
+
+      color: white;
+
+    }
+
+
+    .back-btn {
+
+      border: none;
+
+      background: var(--red);
+
+      color: white;
+
+      padding: 9px 15px;
+
+      border-radius: 999px;
+
+      font-family: inherit;
+
+      font-size: 13px;
+
+      font-weight: 700;
+
+      cursor: pointer;
+
+      text-decoration: none;
+
+      transition: .25s;
+
+    }
+
+
+    .back-btn:hover {
+
+      background: var(--red-dark);
+
+    }
+
+
+    /* =========================
+       CONTAINER
+    ========================= */
+
+    .container {
+
+      width:
+        min(
+          1000px,
+          calc(100% - 40px)
+        );
+
+      margin: 0 auto;
+
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .page-header {
+
+      padding: 45px 0 25px;
+
+    }
+
+
+    .eyebrow {
+
+      color: var(--red);
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+      letter-spacing: .12em;
+
+      text-transform: uppercase;
+
+      margin-bottom: 8px;
+
+    }
+
+
+    .page-header h1 {
+
+      font-family:
+        "Plus Jakarta Sans",
+        sans-serif;
+
+      color: var(--blue);
+
+      font-size:
+        clamp(
+          30px,
+          4vw,
+          44px
+        );
+
+      line-height: 1.15;
+
+      margin-bottom: 8px;
+
+    }
+
+
+    .page-header p {
+
+      color: var(--muted);
+
+      font-size: 14px;
+
+    }
+
+
+    /* =========================
+       LOADING
+    ========================= */
+
+    .loading {
+
+      background: white;
+
+      border: 1px solid var(--line);
+
+      border-radius: 18px;
+
+      box-shadow: var(--shadow);
+
+      padding: 60px 20px;
+
+      text-align: center;
+
+      color: var(--muted);
+
+    }
+
+
+    .spinner {
+
+      width: 38px;
+
+      height: 38px;
+
+      border:
+        4px solid #e5e5e5;
+
+      border-top-color:
+        var(--blue);
+
+      border-radius: 50%;
+
+      animation:
+        spin .8s linear infinite;
+
+      margin:
+        0 auto 15px;
+
+    }
+
+
+    @keyframes spin {
+
+      to {
+        transform: rotate(360deg);
+      }
+
+    }
+
+
+    /* =========================
+       ERROR
+    ========================= */
+
+    .error-box {
+
+      display: none;
+
+      background: #fff0f1;
+
+      border:
+        1px solid #ffc7ca;
+
+      color: #b4232a;
+
+      border-radius: 14px;
+
+      padding: 18px;
+
+      margin-bottom: 25px;
+
+      font-size: 13px;
+
+    }
+
+
+    .retry-btn {
+
+      border: none;
+
+      background: var(--red);
+
+      color: white;
+
+      padding: 9px 14px;
+
+      border-radius: 8px;
+
+      margin-top: 12px;
+
+      cursor: pointer;
+
+      font-family: inherit;
+
+      font-weight: 700;
+
+      font-size: 12px;
+
+    }
+
+
+    /* =========================
+       DETAIL CARD
+    ========================= */
+
+    .detail-card {
+
+      background: white;
+
+      border:
+        1px solid var(--line);
+
+      border-radius: 18px;
+
+      box-shadow: var(--shadow);
+
+      overflow: hidden;
+
+      margin-bottom: 25px;
+
+    }
+
+
+    .detail-header {
+
+      padding: 23px 25px;
+
+      border-bottom:
+        1px solid var(--line);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 15px;
+
+    }
+
+
+    .detail-header h2 {
+
+      font-family:
+        "Plus Jakarta Sans",
+        sans-serif;
+
+      color: var(--blue);
+
+      font-size: 19px;
+
+    }
+
+
+    .code {
+
+      font-family: monospace;
+
+      background:
+        var(--blue-pale);
+
+      color: var(--blue);
+
+      padding: 7px 11px;
+
+      border-radius: 8px;
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+      white-space: nowrap;
+
+    }
+
+
+    /* =========================
+       INFORMATION
+    ========================= */
+
+    .info-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 0;
+
+    }
+
+
+    .info-item {
+
+      padding: 19px 25px;
+
+      border-bottom:
+        1px solid var(--line);
+
+    }
+
+
+    .info-item:nth-child(
+      odd
+    ) {
+
+      border-right:
+        1px solid var(--line);
+
+    }
+
+
+    .info-label {
+
+      color: var(--muted);
+
+      font-size: 10px;
+
+      text-transform:
+        uppercase;
+
+      letter-spacing: .07em;
+
+      font-weight: 800;
+
+      margin-bottom: 5px;
+
+    }
+
+
+    .info-value {
+
+      color: var(--ink);
+
+      font-size: 14px;
+
+      font-weight: 600;
+
+      word-break: break-word;
+
+    }
+
+
+    /* =========================
+       CONTENT
+    ========================= */
+
+    .content-section {
+
+      padding: 25px;
+
+      border-bottom:
+        1px solid var(--line);
+
+    }
+
+
+    .content-section:last-child {
+
+      border-bottom: none;
+
+    }
+
+
+    .content-label {
+
+      color: var(--blue);
+
+      font-family:
+        "Plus Jakarta Sans",
+        sans-serif;
+
+      font-size: 14px;
+
+      font-weight: 800;
+
+      margin-bottom: 10px;
+
+    }
+
+
+    .content-box {
+
+      background: #fafafa;
+
+      border:
+        1px solid var(--line);
+
+      border-radius: 11px;
+
+      padding: 15px;
+
+      font-size: 13px;
+
+      color: #444;
+
+      white-space: pre-wrap;
+
+      min-height: 60px;
+
+      word-break: break-word;
+
+    }
+
+
+    /* =========================
+       STATUS
+    ========================= */
+
+    .status {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 6px;
+
+      padding: 6px 11px;
+
+      border-radius: 999px;
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+    }
+
+
+    .status::before {
+
+      content: "";
+
+      width: 6px;
+
+      height: 6px;
+
+      border-radius: 50%;
+
+      background:
+        currentColor;
+
+    }
+
+
+    .status.baru {
+
+      color: var(--orange);
+
+      background: #fff1e5;
+
+    }
+
+
+    .status.diproses {
+
+      color: #1d5ca8;
+
+      background: #e9f2ff;
+
+    }
+
+
+    .status.selesai {
+
+      color: var(--green);
+
+      background: #eaf7eb;
+
+    }
+
+
+    .status.ditolak {
+
+      color: #b4232a;
+
+      background: #ffecef;
+
+    }
+
+
+    /* =========================
+       ADMIN FORM
+    ========================= */
+
+    .admin-card {
+
+      background: white;
+
+      border:
+        1px solid var(--line);
+
+      border-radius: 18px;
+
+      box-shadow: var(--shadow);
+
+      overflow: hidden;
+
+      margin-bottom: 30px;
+
+    }
+
+
+    .admin-header {
+
+      padding: 22px 25px;
+
+      border-bottom:
+        1px solid var(--line);
+
+    }
+
+
+    .admin-header h2 {
+
+      font-family:
+        "Plus Jakarta Sans",
+        sans-serif;
+
+      color: var(--blue);
+
+      font-size: 19px;
+
+    }
+
+
+    .admin-header p {
+
+      color: var(--muted);
+
+      font-size: 12px;
+
+      margin-top: 3px;
+
+    }
+
+
+    .form-body {
+
+      padding: 25px;
+
+    }
+
+
+    .form-group {
+
+      margin-bottom: 20px;
+
+    }
+
+
+    .form-group:last-child {
+
+      margin-bottom: 0;
+
+    }
+
+
+    .form-label {
+
+      display: block;
+
+      color: var(--ink);
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+      margin-bottom: 7px;
+
+    }
+
+
+    select,
+    textarea {
+
+      width: 100%;
+
+      border:
+        1px solid #ddd;
+
+      border-radius: 10px;
+
+      padding: 12px 13px;
+
+      font-family: inherit;
+
+      font-size: 13px;
+
+      outline: none;
+
+      background: white;
+
+      transition: .2s;
+
+    }
+
+
+    select:focus,
+    textarea:focus {
+
+      border-color:
+        var(--blue);
+
+      box-shadow:
+        0 0 0 3px
+        rgba(5,38,89,.07);
+
+    }
+
+
+    textarea {
+
+      resize: vertical;
+
+      min-height: 130px;
+
+    }
+
+
+    .button-row {
+
+      display: flex;
+
+      gap: 10px;
+
+      flex-wrap: wrap;
+
+      margin-top: 20px;
+
+    }
+
+
+    .save-btn {
+
+      border: none;
+
+      background: var(--blue);
+
+      color: white;
+
+      padding: 11px 18px;
+
+      border-radius: 9px;
+
+      font-family: inherit;
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+      cursor: pointer;
+
+      transition: .2s;
+
+    }
+
+
+    .save-btn:hover {
+
+      background:
+        var(--blue-dark);
+
+      transform:
+        translateY(-1px);
+
+    }
+
+
+    .save-btn:disabled {
+
+      opacity: .6;
+
+      cursor: not-allowed;
+
+      transform: none;
+
+    }
+
+
+    .delete-btn {
+
+      border: none;
+
+      background: #fff0f1;
+
+      color: #b4232a;
+
+      padding: 11px 18px;
+
+      border-radius: 9px;
+
+      font-family: inherit;
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+      cursor: pointer;
+
+      transition: .2s;
+
+    }
+
+
+    .delete-btn:hover {
+
+      background: #ffe0e3;
+
+    }
+
+
+    .message {
+
+      display: none;
+
+      padding: 12px 14px;
+
+      border-radius: 9px;
+
+      margin-top: 15px;
+
+      font-size: 12px;
+
+      font-weight: 600;
+
+    }
+
+
+    .message.success {
+
+      display: block;
+
+      background: #eaf7eb;
+
+      color: var(--green);
+
+      border:
+        1px solid #c9e8cb;
+
+    }
+
+
+    .message.error {
+
+      display: block;
+
+      background: #fff0f1;
+
+      color: #b4232a;
+
+      border:
+        1px solid #ffc7ca;
+
+    }
+
+
+    /* =========================
+       NOT FOUND
+    ========================= */
+
+    .not-found {
+
+      display: none;
+
+      background: white;
+
+      border:
+        1px solid var(--line);
+
+      border-radius: 18px;
+
+      box-shadow: var(--shadow);
+
+      padding: 60px 20px;
+
+      text-align: center;
+
+    }
+
+
+    .not-found-icon {
+
+      font-size: 45px;
+
+      margin-bottom: 10px;
+
+    }
+
+
+    .not-found h2 {
+
+      font-family:
+        "Plus Jakarta Sans",
+        sans-serif;
+
+      color: var(--blue);
+
+      margin-bottom: 5px;
+
+    }
+
+
+    .not-found p {
+
+      color: var(--muted);
+
+      font-size: 13px;
+
+      margin-bottom: 20px;
+
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+
+      background:
+        var(--blue-dark);
+
+      color:
+        rgba(255,255,255,.7);
+
+      padding: 30px 0;
+
+      text-align: center;
+
+      font-size: 12px;
+
+      margin-top: 50px;
+
+    }
+
+
+    footer strong {
+
+      color: white;
+
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 700px) {
+
+      .navbar {
+
+        padding: 0 20px;
+
+      }
+
+
+      .nav-link {
+
+        display: none;
+
+      }
+
+
+      .container {
+
+        width:
+          min(
+            100% - 28px,
+            1000px
+          );
+
+      }
+
+
+      .page-header {
+
+        padding:
+          32px 0 22px;
+
+      }
+
+
+      .info-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+
+      .info-item:nth-child(
+        odd
+      ) {
+
+        border-right: none;
+
+      }
+
+
+      .detail-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+      }
+
+
+      .form-body,
+      .content-section {
+
+        padding: 20px;
+
+      }
+
+    }
+
+
+    @media (max-width: 400px) {
+
+      .official-logo {
+
+        width: 38px;
+
+        height: 38px;
+
+      }
+
+
+      .brand strong {
+
+        font-size: 14px;
+
+      }
+
+
+      .brand small {
+
+        font-size: 9px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================
+       NAVBAR
+  ========================= -->
+
+  <header class="navbar">
+
+
+    <a
+      href="admin.html"
+      class="brand"
+    >
+
+      <img
+        src="logo-kabupaten-sambas.png"
+        alt="Logo Kabupaten Sambas"
+        class="official-logo"
+      >
+
+
+      <span>
+
+        <strong>
+          Desa Semparuk
+        </strong>
+
+        <small>
+          Panel Administrator
+        </small>
+
+      </span>
+
+    </a>
+
+
+    <div class="nav-right">
+
+
+      <a
+        href="admin.html"
+        class="nav-link"
+      >
+        ← Dashboard
+      </a>
+
+
+      <a
+        href="index.html"
+        class="nav-link"
+      >
+        Website Desa
+      </a>
+
+
+      <button
+        class="back-btn"
+        onclick="logout()"
+      >
+        Keluar
+      </button>
+
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       MAIN
+  ========================= -->
+
+  <main class="container">
+
+
+    <!-- PAGE HEADER -->
+
+    <section class="page-header">
+
+      <div class="eyebrow">
+        DETAIL PENGADUAN
+      </div>
+
+      <h1>
+        Detail Pengaduan
+      </h1>
+
+      <p>
+        Informasi lengkap pengaduan masyarakat Desa Semparuk.
+      </p>
+
+    </section>
+
+
+    <!-- ERROR -->
+
+    <div
+      class="error-box"
+      id="errorBox"
+    >
+
+      <div id="errorMessage">
+        Gagal mengambil data pengaduan.
+      </div>
+
+
+      <button
+        class="retry-btn"
+        onclick="loadComplaint()"
+      >
+        Coba Lagi
+      </button>
+
+    </div>
+
+
+    <!-- LOADING -->
+
+    <div
+      class="loading"
+      id="loading"
+    >
+
+      <div class="spinner"></div>
+
+      <div>
+        Mengambil detail pengaduan...
+      </div>
+
+    </div>
+
+
+    <!-- NOT FOUND -->
+
+    <div
+      class="not-found"
+      id="notFound"
+    >
+
+      <div class="not-found-icon">
+        📭
+      </div>
+
+      <h2>
+        Pengaduan Tidak Ditemukan
+      </h2>
+
+      <p>
+        Data pengaduan yang Anda cari tidak tersedia.
+      </p>
+
+      <a
+        href="admin.html"
+        class="back-btn"
+      >
+        ← Kembali ke Dashboard
+      </a>
+
+    </div>
+
+
+    <!-- =========================
+         DETAIL
+    ========================= -->
+
+    <div
+      id="detailContent"
+      style="display:none;"
+    >
+
+
+      <section class="detail-card">
+
+
+        <div class="detail-header">
+
+          <h2>
+            Informasi Pengaduan
+          </h2>
+
+
+          <span
+            class="code"
+            id="complaintCode"
+          >
+            -
+          </span>
+
+        </div>
+
+
+        <div class="info-grid">
+
+
+          <div class="info-item">
+
+            <div class="info-label">
+              Nama Pelapor
+            </div>
+
+            <div
+              class="info-value"
+              id="complaintName"
+            >
+              -
+            </div>
+
+          </div>
+
+
+          <div class="info-item">
+
+            <div class="info-label">
+              Kontak
+            </div>
+
+            <div
+              class="info-value"
+              id="complaintContact"
+            >
+              -
+            </div>
+
+          </div>
+
+
+          <div class="info-item">
+
+            <div class="info-label">
+              Kategori
+            </div>
+
+            <div
+              class="info-value"
+              id="complaintCategory"
+            >
+              -
+            </div>
+
+          </div>
+
+
+          <div class="info-item">
+
+            <div class="info-label">
+              Tanggal
+            </div>
+
+            <div
+              class="info-value"
+              id="complaintDate"
+            >
+              -
+            </div>
+
+          </div>
+
+
+          <div class="info-item">
+
+            <div class="info-label">
+              Lokasi
+            </div>
+
+            <div
+              class="info-value"
+              id="complaintLocation"
+            >
+              -
+            </div>
+
+          </div>
+
+
+          <div class="info-item">
+
+            <div class="info-label">
+              Status
+            </div>
+
+            <div
+              class="info-value"
+              id="complaintStatus"
+            >
+              -
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+        <!-- JUDUL -->
+
+        <div class="content-section">
+
+          <div class="content-label">
+            Judul Pengaduan
+          </div>
+
+          <div
+            class="content-box"
+            id="complaintTitle"
+          >
+            -
+          </div>
+
+        </div>
+
+
+        <!-- ISI -->
+
+        <div class="content-section">
+
+          <div class="content-label">
+            Isi Pengaduan
+          </div>
+
+          <div
+            class="content-box"
+            id="complaintContent"
+          >
+            -
+          </div>
+
+        </div>
+
+
+      </section>
+
+
+      <!-- =========================
+           ADMIN UPDATE
+      ========================= -->
+
+      <section class="admin-card">
+
+
+        <div class="admin-header">
+
+          <h2>
+            Kelola Pengaduan
+          </h2>
+
+          <p>
+            Perbarui status dan berikan tanggapan kepada pelapor.
+          </p>
+
+        </div>
+
+
+        <div class="form-body">
+
+
+          <div class="form-group">
+
+            <label
+              class="form-label"
+              for="statusInput"
+            >
+              Status Pengaduan
+            </label>
+
+
+            <select
+              id="statusInput"
+            >
+
+              <option value="Baru">
+                Baru
+              </option>
+
+              <option value="Diproses">
+                Diproses
+              </option>
+
+              <option value="Selesai">
+                Selesai
+              </option>
+
+              <option value="Ditolak">
+                Ditolak
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label
+              class="form-label"
+              for="responseInput"
+            >
+              Tanggapan Admin
+            </label>
+
+
+            <textarea
+              id="responseInput"
+              placeholder="Tulis tanggapan untuk pengaduan ini..."
+            ></textarea>
+
+          </div>
+
+
+          <div class="button-row">
+
+
+            <button
+              class="save-btn"
+              id="saveBtn"
+              onclick="saveComplaint()"
+            >
+              💾 Simpan Perubahan
+            </button>
+
+
+            <button
+              class="delete-btn"
+              onclick="deleteComplaint()"
+            >
+              🗑️ Hapus Pengaduan
+            </button>
+
+
+          </div>
+
+
+          <div
+            class="message"
+            id="message"
+          ></div>
+
+
+        </div>
+
+      </section>
+
+
+    </div>
+
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <strong>
+      Desa Semparuk
+    </strong>
+
+    <br>
+
+    Kec. Semparuk, Kab. Sambas, Kalimantan Barat
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+
+    /* =====================================================
+       LOGIN
+    ===================================================== */
+
+    if (
+      sessionStorage.getItem(
+        "adminLogin"
+      ) !== "true"
+    ) {
+
+      window.location.href =
+        "login.html";
+
+    }
+
+
+    /* =====================================================
+       API URL
+    ===================================================== */
+
+    const API_URL =
+      "https://script.google.com/macros/s/AKfycbzb8sY19UCUnE7KJVV6SLT5DoL0AQ9KMxTOMSBghIYG3V-mpYapmnixVfuaXI5xHkYj/exec";
+
+
+    /* =====================================================
+       GET ID DARI URL
+    ===================================================== */
+
+    const urlParams =
+      new URLSearchParams(
+        window.location.search
+      );
+
+
+    const complaintId =
+      urlParams.get("id");
+
+
+    let currentComplaint = null;
+
+
+    /* =====================================================
+       JSONP
+    ===================================================== */
+
+    function requestJSONP(
+      action,
+      params = {}
+    ) {
+
+      return new Promise(
+        (resolve, reject) => {
+
+
+          const callbackName =
+            "detailCallback_" +
+            Date.now() +
+            "_" +
+            Math.floor(
+              Math.random() * 100000
+            );
+
+
+          const query =
+            new URLSearchParams();
+
+
+          query.append(
+            "action",
+            action
+          );
+
+
+          Object.keys(params)
+            .forEach(key => {
+
+              if (
+                params[key] !== undefined &&
+                params[key] !== null
+              ) {
+
+                query.append(
+                  key,
+                  params[key]
+                );
+
+              }
+
+            });
+
+
+          query.append(
+            "callback",
+            callbackName
+          );
+
+
+          const script =
+            document.createElement(
+              "script"
+            );
+
+
+          let finished = false;
+
+
+          const cleanup = () => {
+
+            if (
+              script.parentNode
+            ) {
+
+              script.parentNode
+                .removeChild(
+                  script
+                );
+
+            }
+
+
+            try {
+
+              delete window[
+                callbackName
+              ];
+
+            } catch (error) {
+
+              window[
+                callbackName
+              ] = undefined;
+
+            }
+
+          };
+
+
+          const timeout =
+            setTimeout(
+              () => {
+
+                if (finished)
+                  return;
+
+
+                finished = true;
+
+                cleanup();
+
+
+                reject(
+                  new Error(
+                    "Waktu koneksi ke server habis."
+                  )
+                );
+
+              },
+              10000
+            );
+
+
+          window[
+            callbackName
+          ] = data => {
+
+            if (finished)
+              return;
+
+
+            finished = true;
+
+            clearTimeout(
+              timeout
+            );
+
+            cleanup();
+
+            resolve(data);
+
+          };
+
+
+          script.onerror =
+            () => {
+
+              if (finished)
+                return;
+
+
+              finished = true;
+
+              clearTimeout(
+                timeout
+              );
+
+              cleanup();
+
+
+              reject(
+                new Error(
+                  "Tidak dapat menghubungi Google Apps Script."
+                )
+              );
+
+            };
+
+
+          script.src =
+            API_URL +
+            "?" +
+            query.toString() +
+            "&_=" +
+            Date.now();
+
+
+          document.body.appendChild(
+            script
+          );
+
+        }
+      );
+
+    }
+
+
+    /* =====================================================
+       LOAD DETAIL
+    ===================================================== */
+
+    async function loadComplaint() {
+
+
+      const loading =
+        document.getElementById(
+          "loading"
+        );
+
+
+      const errorBox =
+        document.getElementById(
+          "errorBox"
+        );
+
+
+      const notFound =
+        document.getElementById(
+          "notFound"
+        );
+
+
+      const detailContent =
+        document.getElementById(
+          "detailContent"
+        );
+
+
+      if (!complaintId) {
+
+        loading.style.display =
+          "none";
+
+        notFound.style.display =
+          "block";
+
+        return;
+
+      }
+
+
+      loading.style.display =
+        "block";
+
+      errorBox.style.display =
+        "none";
+
+      notFound.style.display =
+        "none";
+
+      detailContent.style.display =
+        "none";
+
+
+      try {
+
+
+        console.log(
+          "Mengambil detail:",
+          complaintId
+        );
+
+
+        const response =
+          await requestJSONP(
+            "detail",
+            {
+              id: complaintId
+            }
+          );
+
+
+        console.log(
+          "Response detail:",
+          response
+        );
+
+
+        if (
+          !response ||
+          response.success !== true
+        ) {
+
+          throw new Error(
+            response?.message ||
+            "Data detail tidak valid."
+          );
+
+        }
+
+
+        if (
+          !response.data
+        ) {
+
+          loading.style.display =
+            "none";
+
+          notFound.style.display =
+            "block";
+
+          return;
+
+        }
+
+
+        currentComplaint =
+          response.data;
+
+
+        renderComplaint(
+          response.data
+        );
+
+
+        loading.style.display =
+          "none";
+
+        detailContent.style.display =
+          "block";
+
+
+      } catch (error) {
+
+
+        console.error(
+          "Gagal mengambil detail:",
+          error
+        );
+
+
+        loading.style.display =
+          "none";
+
+
+        errorBox.style.display =
+          "block";
+
+
+        document.getElementById(
+          "errorMessage"
+        ).textContent =
+          "Gagal mengambil data: " +
+          error.message;
+
+      }
+
+    }
+
+
+    /* =====================================================
+       RENDER DETAIL
+    ===================================================== */
+
+    function renderComplaint(
+      data
+    ) {
+
+
+      const kode =
+        data.kode ||
+        data.id ||
+        "-";
+
+
+      const nama =
+        data.nama ||
+        "-";
+
+
+      const kontak =
+        data.kontak ||
+        "-";
+
+
+      const kategori =
+        data.kategori ||
+        "-";
+
+
+      const judul =
+        data.judul ||
+        "-";
+
+
+      const isi =
+        data.isi ||
+        "-";
+
+
+      const lokasi =
+        data.lokasi ||
+        "-";
+
+
+      const tanggal =
+        data.tanggal ||
+        "-";
+
+
+      const status =
+        normalizeStatus(
+          data.status
+        );
+
+
+      const tanggapan =
+        data.tanggapan ||
+        "";
+
+
+      document.getElementById(
+        "complaintCode"
+      ).textContent =
+        kode;
+
+
+      document.getElementById(
+        "complaintName"
+      ).textContent =
+        nama;
+
+
+      document.getElementById(
+        "complaintContact"
+      ).textContent =
+        kontak;
+
+
+      document.getElementById(
+        "complaintCategory"
+      ).textContent =
+        kategori;
+
+
+      document.getElementById(
+        "complaintDate"
+      ).textContent =
+        tanggal;
+
+
+      document.getElementById(
+        "complaintLocation"
+      ).textContent =
+        lokasi;
+
+
+      document.getElementById(
+        "complaintTitle"
+      ).textContent =
+        judul;
+
+
+      document.getElementById(
+        "complaintContent"
+      ).textContent =
+        isi;
+
+
+      const statusElement =
+        document.getElementById(
+          "complaintStatus"
+        );
+
+
+      statusElement.innerHTML =
+        `
+        <span class="status ${getStatusClass(status)}">
+          ${escapeHTML(status)}
+        </span>
+        `;
+
+
+      document.getElementById(
+        "statusInput"
+      ).value =
+        status;
+
+
+      document.getElementById(
+        "responseInput"
+      ).value =
+        tanggapan;
+
+    }
+
+
+    /* =====================================================
+       NORMALIZE STATUS
+    ===================================================== */
+
+    function normalizeStatus(
+      status
+    ) {
+
+      const value =
+        String(
+          status || ""
+        )
+        .trim()
+        .toLowerCase();
+
+
+      if (
+        value === "baru"
+      ) {
+
+        return "Baru";
+
+      }
+
+
+      if (
+        value === "diproses" ||
+        value === "proses"
+      ) {
+
+        return "Diproses";
+
+      }
+
+
+      if (
+        value === "selesai"
+      ) {
+
+        return "Selesai";
+
+      }
+
+
+      if (
+        value === "ditolak"
+      ) {
+
+        return "Ditolak";
+
+      }
+
+
+      return "Baru";
+
+    }
+
+
+    /* =====================================================
+       STATUS CLASS
+    ===================================================== */
+
+    function getStatusClass(
+      status
+    ) {
+
+      return String(
+        status || ""
+      )
+      .toLowerCase()
+      .replace(
+        /\s+/g,
+        ""
+      );
+
+    }
+
+
+    /* =====================================================
+       UPDATE COMPLAINT
+    ===================================================== */
+
+    async function saveComplaint() {
+
+
+      if (!currentComplaint) {
+
+        return;
+
+      }
+
+
+      const saveBtn =
+        document.getElementById(
+          "saveBtn"
+        );
+
+
+      const status =
+        document.getElementById(
+          "statusInput"
+        ).value;
+
+
+      const tanggapan =
+        document.getElementById(
+          "responseInput"
+        ).value;
+
+
+      const databaseId =
+        currentComplaint.id;
+
+
+      if (!databaseId) {
+
+        showMessage(
+          "ID pengaduan tidak ditemukan.",
+          "error"
+        );
+
+        return;
+
+      }
+
+
+      saveBtn.disabled =
+        true;
+
+      saveBtn.textContent =
+        "⏳ Menyimpan...";
+
+
+      try {
+
+
+        const formData =
+          new URLSearchParams();
+
+
+        formData.append(
+          "action",
+          "update"
+        );
+
+
+        formData.append(
+          "id",
+          databaseId
+        );
+
+
+        formData.append(
+          "status",
+          status
+        );
+
+
+        formData.append(
+          "tanggapan",
+          tanggapan
+        );
+
+
+        /*
+         * POST ke Apps Script.
+         *
+         * Menggunakan no-cors karena
+         * browser tidak dapat membaca
+         * response POST Apps Script
+         * secara langsung.
+         */
+
+        await fetch(
+          API_URL,
+          {
+            method: "POST",
+
+            mode: "no-cors",
+
+            headers: {
+              "Content-Type":
+                "application/x-www-form-urlencoded;charset=UTF-8"
+            },
+
+            body:
+              formData.toString()
+
+          }
+        );
+
+
+        /*
+         * Beri waktu Apps Script
+         * menyimpan data ke Sheet.
+         */
+
+        await new Promise(
+          resolve =>
+            setTimeout(
+              resolve,
+              1200
+            )
+        );
+
+
+        currentComplaint.status =
+          status;
+
+
+        currentComplaint.tanggapan =
+          tanggapan;
+
+
+        renderComplaint(
+          currentComplaint
+        );
+
+
+        showMessage(
+          "Perubahan berhasil dikirim ke Google Sheets.",
+          "success"
+        );
+
+
+      } catch (error) {
+
+
+        console.error(
+          "Gagal update:",
+          error
+        );
+
+
+        showMessage(
+          "Gagal menyimpan: " +
+          error.message,
+          "error"
+        );
+
+
+      } finally {
+
+
+        saveBtn.disabled =
+          false;
+
+        saveBtn.textContent =
+          "💾 Simpan Perubahan";
+
+      }
+
+    }
+
+
+    /* =====================================================
+       DELETE
+    ===================================================== */
+
+    async function deleteComplaint() {
+
+
+      if (!currentComplaint) {
+
+        return;
+
+      }
+
+
+      const databaseId =
+        currentComplaint.id;
+
+
+      if (!databaseId) {
+
+        showMessage(
+          "ID pengaduan tidak ditemukan.",
+          "error"
+        );
+
+        return;
+
+      }
+
+
+      const confirmDelete =
+        confirm(
+          "Apakah Anda yakin ingin menghapus pengaduan ini?\n\nData akan dihapus dari Google Sheets dan tidak dapat dikembalikan."
+        );
+
+
+      if (!confirmDelete) {
+
+        return;
+
+      }
+
+
+      try {
+
+
+        const formData =
+          new URLSearchParams();
+
+
+        formData.append(
+          "action",
+          "hapus"
+        );
+
+
+        formData.append(
+          "id",
+          databaseId
+        );
+
+
+        await fetch(
+          API_URL,
+          {
+            method: "POST",
+
+            mode: "no-cors",
+
+            headers: {
+              "Content-Type":
+                "application/x-www-form-urlencoded;charset=UTF-8"
+            },
+
+            body:
+              formData.toString()
+
+          }
+        );
+
+
+        await new Promise(
+          resolve =>
+            setTimeout(
+              resolve,
+              1200
+            )
+        );
+
+
+        alert(
+          "Pengaduan berhasil dihapus."
+        );
+
+
+        window.location.href =
+          "admin.html";
+
+
+      } catch (error) {
+
+
+        console.error(
+          "Gagal menghapus:",
+          error
+        );
+
+
+        showMessage(
+          "Gagal menghapus: " +
+          error.message,
+          "error"
+        );
+
+      }
+
+    }
+
+
+    /* =====================================================
+       MESSAGE
+    ===================================================== */
+
+    function showMessage(
+      text,
+      type
+    ) {
+
+
+      const message =
+        document.getElementById(
+          "message"
+        );
+
+
+      message.textContent =
+        text;
+
+
+      message.className =
+        "message " +
+        type;
+
+
+      setTimeout(
+        () => {
+
+          message.className =
+            "message";
+
+        },
+        5000
+      );
+
+    }
+
+
+    /* =====================================================
+       ESCAPE HTML
+    ===================================================== */
+
+    function escapeHTML(
+      value
+    ) {
+
+      return String(
+        value ?? ""
+      )
+      .replace(
+        /&/g,
+        "&amp;"
+      )
+      .replace(
+        /</g,
+        "&lt;"
+      )
+      .replace(
+        />/g,
+        "&gt;"
+      )
+      .replace(
+        /"/g,
+        "&quot;"
+      )
+      .replace(
+        /'/g,
+        "&#039;"
+      );
+
+    }
+
+
+    /* =====================================================
+       LOGOUT
+    ===================================================== */
+
+    function logout() {
+
+      sessionStorage.removeItem(
+        "adminLogin"
+      );
+
+
+      window.location.href =
+        "login.html";
+
+    }
+
+
+    /* =====================================================
+       START
+    ===================================================== */
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      function() {
+
+        console.log(
+          "Detail pengaduan dimulai..."
+        );
+
+
+        loadComplaint();
+
+      }
+    );
+
+  </script>
+
+
+</body>
+</html>

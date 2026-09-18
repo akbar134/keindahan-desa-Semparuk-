@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Login Admin — Desa Semparuk</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blue: #052659;
+      --blue-dark: #021024;
+      --blue-light: #7da0ca;
+      --blue-pale: #c1e8ff;
+      --red: #e51b23;
+      --red-dark: #c90f17;
+      --ink: #171717;
+      --muted: #777;
+      --line: #ececec;
+      --soft: #f6f6f6;
+      --white: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      min-height: 100vh;
+      background: var(--blue);
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .login-wrapper {
+      width: 100%;
+      max-width: 430px;
+    }
+
+    .login-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 42px 36px;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, .25);
+    }
+
+    .logo {
+      width: 75px;
+      height: 75px;
+      margin: 0 auto 20px;
+      display: block;
+      object-fit: contain;
+    }
+
+    .login-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .login-header h1 {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 28px;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+
+    .login-header p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--blue);
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 14px 15px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      transition: .25s;
+    }
+
+    .form-group input:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(229, 27, 35, .1);
+    }
+
+    .login-btn {
+      width: 100%;
+      border: none;
+      background: var(--red);
+      color: white;
+      padding: 14px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: .25s;
+      margin-top: 5px;
+    }
+
+    .login-btn:hover {
+      background: var(--red-dark);
+      transform: translateY(-1px);
+    }
+
+    .error-message {
+      display: none;
+      background: #fff0f0;
+      color: var(--red-dark);
+      border: 1px solid #ffd0d0;
+      border-radius: 9px;
+      padding: 12px;
+      margin-bottom: 18px;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .error-message.show {
+      display: block;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 22px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .back-link:hover {
+      color: var(--red);
+    }
+
+    .copyright {
+      text-align: center;
+      color: rgba(255,255,255,.65);
+      font-size: 12px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 16px;
+      }
+
+      .login-card {
+        padding: 32px 24px;
+      }
+
+      .login-header h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="login-wrapper">
+
+    <div class="login-card">
+
+      <img
+        src="logo-kabupaten-sambas.png"
+        alt="Logo Kabupaten Sambas"
+        class="logo"
+      >
+
+      <div class="login-header">
+        <h1>Login Admin</h1>
+        <p>Panel Pengelolaan Layanan Warga</p>
+      </div>
+
+      <div class="error-message" id="errorMessage">
+        Username atau password salah.
+      </div>
+
+      <form id="loginForm">
+
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Masukkan username"
+            autocomplete="username"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Masukkan password"
+            autocomplete="current-password"
+            required
+          >
+        </div>
+
+        <button type="submit" class="login-btn">
+          Masuk ke Dashboard
+        </button>
+
+      </form>
+
+      <a href="index.html" class="back-link">
+        ← Kembali ke Website Desa
+      </a>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 Desa Semparuk
+    </div>
+
+  </div>
+
+
+  <script>
+
+    /*
+      LOGIN ADMIN
+      Untuk sementara menggunakan login sederhana.
+
+      Username : admin
+      Password : admin123
+
+      Nanti bisa kita ubah/tingkatkan jika diperlukan.
+    */
+
+    const ADMIN_USERNAME = "admin";
+    const ADMIN_PASSWORD = "brian123";
+
+    const loginForm = document.getElementById("loginForm");
+    const errorMessage = document.getElementById("errorMessage");
+
+    loginForm.addEventListener("submit", function(e) {
+
+      e.preventDefault();
+
+      const username =
+        document.getElementById("username").value.trim();
+
+      const password =
+        document.getElementById("password").value;
+
+      if (
+        username === ADMIN_USERNAME &&
+        password === ADMIN_PASSWORD
+      ) {
+
+        sessionStorage.setItem("adminLogin", "true");
+
+        window.location.href = "admin.html";
+
+      } else {
+
+        errorMessage.classList.add("show");
+
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>

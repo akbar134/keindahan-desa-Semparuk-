@@ -1,0 +1,2191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Layanan Warga — Desa Semparuk</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blue: #052659;
+      --blue-dark: #021024;
+      --blue-light: #7da0ca;
+      --blue-pale: #c1e8ff;
+      --red: #e51b23;
+      --red-dark: #c90f17;
+      --ink: #171717;
+      --muted: #777;
+      --line: #ececec;
+      --soft: #f6f6f6;
+      --white: #fff;
+      --shadow: 0 18px 55px rgba(0,0,0,.09);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--soft);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 48px));
+      margin: auto;
+    }
+
+    /* ================= NAVBAR ================= */
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 76px;
+      z-index: 1000;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0 24px;
+
+      background: rgba(5, 38, 89, .96);
+      backdrop-filter: blur(12px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      text-decoration: none;
+      color: white;
+    }
+
+    .official-logo {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+
+    .brand span {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .brand strong {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 15px;
+    }
+
+    .brand small {
+      font-size: 10px;
+      opacity: .7;
+    }
+
+    #navMenu {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    #navMenu a {
+      position: relative;
+
+      color: #fff;
+      text-decoration: none;
+
+      font-size: 12px;
+      font-weight: 600;
+
+      transition: .25s;
+    }
+
+    #navMenu a:hover {
+      color: var(--red);
+    }
+
+    #navMenu a.active {
+      color: var(--red);
+    }
+
+    /* UNDERLINE NAVBAR */
+
+    #navMenu a:not(.nav-service):not(.nav-admin)::after {
+      content: "";
+      position: absolute;
+
+      left: 0;
+      bottom: -7px;
+
+      width: 0;
+      height: 2px;
+
+      background: var(--red);
+
+      transition: .25s;
+    }
+
+    #navMenu a:not(.nav-service):not(.nav-admin):hover::after,
+    #navMenu a:not(.nav-service):not(.nav-admin).active::after {
+      width: 100%;
+    }
+
+    /* ================= LAYANAN WARGA ================= */
+
+    .nav-service {
+      background: var(--red);
+      color: #fff !important;
+
+      padding: 8px 14px;
+      border-radius: 999px;
+
+      font-weight: 700 !important;
+
+      transition: .25s;
+    }
+
+    .nav-service:hover {
+      background: var(--red-dark);
+      color: #fff !important;
+
+      transform: translateY(-1px);
+    }
+
+    .nav-service::after {
+      display: none !important;
+    }
+
+    /* ================= ADMIN ================= */
+
+    .nav-admin {
+      background: #333;
+      color: #fff !important;
+
+      padding: 8px 14px;
+      border-radius: 999px;
+
+      font-weight: 700 !important;
+
+      transition: .25s;
+    }
+
+    .nav-admin:hover {
+      background: #222;
+      color: #fff !important;
+
+      transform: translateY(-1px);
+    }
+
+    .nav-admin::after {
+      display: none !important;
+    }
+
+    .menu-toggle {
+      display: none;
+
+      border: none;
+      background: none;
+      color: white;
+
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    /* ================= PAGE HEADER ================= */
+
+    .page-header {
+      margin-top: 76px;
+
+      min-height: 360px;
+
+      display: flex;
+      align-items: center;
+
+      background:
+        linear-gradient(
+          rgba(5, 38, 89, .88),
+          rgba(2, 16, 36, .94)
+        ),
+        url("images/hero-desa.jpeg") center/cover;
+
+      color: white;
+    }
+
+    .page-header-content {
+      padding: 80px 0;
+    }
+
+    .eyebrow {
+      color: var(--red);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .page-header h1 {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: clamp(40px, 6vw, 68px);
+      line-height: 1.05;
+      max-width: 800px;
+    }
+
+    .page-header h1 span {
+      color: var(--red);
+    }
+
+    .page-header p {
+      max-width: 650px;
+      margin-top: 20px;
+
+      color: rgba(255,255,255,.75);
+      font-size: 15px;
+    }
+
+    /* ================= CONTENT ================= */
+
+    .complaint-section {
+      padding: 90px 0;
+    }
+
+    .complaint-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.35fr;
+      gap: 35px;
+      align-items: start;
+    }
+
+    .info-box {
+      background: var(--blue);
+      color: white;
+
+      padding: 35px;
+      border-radius: 18px;
+
+      box-shadow: var(--shadow);
+    }
+
+    .info-box h2 {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .info-box p {
+      color: rgba(255,255,255,.72);
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    .info-list {
+      list-style: none;
+    }
+
+    .info-list li {
+      display: flex;
+      gap: 12px;
+
+      padding: 13px 0;
+
+      border-bottom: 1px solid rgba(255,255,255,.12);
+
+      font-size: 14px;
+    }
+
+    .info-list li:last-child {
+      border-bottom: none;
+    }
+
+    .info-number {
+      width: 28px;
+      height: 28px;
+
+      flex-shrink: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: var(--red);
+      border-radius: 50%;
+
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    /* ================= FORM ================= */
+
+    .form-box {
+      background: white;
+
+      padding: 35px;
+
+      border-radius: 18px;
+
+      box-shadow: var(--shadow);
+    }
+
+    .form-box h2 {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      color: var(--blue);
+
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .form-description {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+
+      margin-bottom: 7px;
+
+      font-size: 13px;
+      font-weight: 700;
+
+      color: var(--blue);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+
+      padding: 13px 15px;
+
+      border: 1px solid #ddd;
+      border-radius: 9px;
+
+      font-family: "Inter", sans-serif;
+      font-size: 14px;
+
+      outline: none;
+
+      transition: .2s;
+    }
+
+    .form-group textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--red);
+
+      box-shadow:
+        0 0 0 3px rgba(229,27,35,.08);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .submit-btn {
+      width: 100%;
+
+      border: none;
+      border-radius: 999px;
+
+      padding: 14px 20px;
+
+      background: var(--red);
+      color: white;
+
+      font-family: "Inter", sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+
+      cursor: pointer;
+
+      transition: .25s;
+    }
+
+    .submit-btn:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+    }
+
+    .submit-btn:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* ================= TOKEN RESULT ================= */
+
+    .result-box {
+      display: none;
+
+      margin-top: 25px;
+
+      padding: 25px;
+
+      border-radius: 14px;
+
+      background: #f0f7ff;
+      border: 1px solid #d7e8ff;
+    }
+
+    .result-box.show {
+      display: block;
+    }
+
+    .result-box h3 {
+      color: var(--blue);
+
+      font-family: "Plus Jakarta Sans", sans-serif;
+
+      margin-bottom: 8px;
+    }
+
+    .result-box p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .token-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      margin-top: 15px;
+    }
+
+    .result-code {
+      display: inline-block;
+
+      padding: 10px 15px;
+
+      background: var(--blue);
+      color: white;
+
+      border-radius: 8px;
+
+      font-weight: 800;
+      letter-spacing: 1px;
+      font-size: 14px;
+    }
+
+    .copy-btn {
+      padding: 10px 14px;
+
+      border: none;
+      border-radius: 8px;
+
+      background: var(--red);
+      color: white;
+
+      font-weight: 700;
+
+      cursor: pointer;
+
+      transition: .2s;
+    }
+
+    .copy-btn:hover {
+      background: var(--red-dark);
+    }
+
+    .copy-message {
+      display: none;
+
+      margin-top: 10px;
+
+      color: #198754 !important;
+
+      font-size: 12px !important;
+      font-weight: 700;
+    }
+
+    /* ================= MESSAGE ================= */
+
+    .form-message {
+      display: none;
+
+      margin-top: 18px;
+
+      padding: 14px;
+
+      border-radius: 9px;
+
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .form-message.show {
+      display: block;
+    }
+
+    .form-message.success {
+      background: #eaf8ef;
+      color: #198754;
+      border: 1px solid #ccebd8;
+    }
+
+    .form-message.error {
+      background: #fff1f1;
+      color: var(--red);
+      border: 1px solid #ffd3d3;
+    }
+
+    /* ================= CEK PENGADUAN ================= */
+
+    .check-section {
+      padding: 0 0 100px;
+    }
+
+    .check-box {
+      background: white;
+
+      padding: 40px;
+
+      border-radius: 18px;
+
+      box-shadow: var(--shadow);
+    }
+
+    .check-heading {
+      margin-bottom: 25px;
+    }
+
+    .check-heading h2 {
+      font-family: "Plus Jakarta Sans", sans-serif;
+
+      color: var(--blue);
+
+      font-size: 32px;
+
+      margin-bottom: 5px;
+    }
+
+    .check-heading p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .check-input {
+      display: flex;
+      gap: 12px;
+    }
+
+    .check-input input {
+      flex: 1;
+
+      padding: 14px 16px;
+
+      border: 1px solid #ddd;
+
+      border-radius: 9px;
+
+      font-family: "Inter", sans-serif;
+
+      font-size: 14px;
+
+      text-transform: uppercase;
+
+      outline: none;
+    }
+
+    .check-input input:focus {
+      border-color: var(--red);
+
+      box-shadow:
+        0 0 0 3px rgba(229,27,35,.08);
+    }
+
+    .check-input button {
+      border: none;
+
+      border-radius: 9px;
+
+      padding: 0 22px;
+
+      background: var(--red);
+
+      color: white;
+
+      font-family: "Inter", sans-serif;
+
+      font-weight: 800;
+
+      cursor: pointer;
+
+      transition: .25s;
+    }
+
+    .check-input button:hover {
+      background: var(--red-dark);
+    }
+
+    .check-input button:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+    }
+
+    /* ================= CHECK RESULT ================= */
+
+    .check-result {
+      display: none;
+
+      margin-top: 25px;
+
+      padding: 25px;
+
+      border-radius: 14px;
+
+      background: #f7f9fc;
+
+      border: 1px solid #e6eaf0;
+    }
+
+    .check-result.show {
+      display: block;
+    }
+
+    .status-header {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      padding-bottom: 20px;
+
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .status-header small,
+    .check-details small,
+    .response-box small {
+      display: block;
+
+      color: var(--muted);
+
+      font-size: 11px;
+
+      font-weight: 600;
+
+      margin-bottom: 3px;
+    }
+
+    .status-header strong {
+      color: var(--blue);
+
+      font-size: 18px;
+
+      letter-spacing: .5px;
+    }
+
+    .status-badge {
+      padding: 7px 14px;
+
+      border-radius: 999px;
+
+      background: #198754;
+
+      color: white;
+
+      font-size: 12px;
+
+      font-weight: 800;
+    }
+
+    .status-badge.baru {
+      background: #6c757d;
+    }
+
+    .status-badge.diproses {
+      background: #0d6efd;
+    }
+
+    .status-badge.selesai {
+      background: #198754;
+    }
+
+    .status-badge.ditolak {
+      background: var(--red);
+    }
+
+    .check-details {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 20px;
+
+      padding: 20px 0;
+    }
+
+    .check-details strong {
+      color: var(--ink);
+
+      font-size: 13px;
+
+      word-break: break-word;
+    }
+
+    .response-box {
+      padding: 18px;
+
+      border-radius: 10px;
+
+      background: white;
+
+      border-left: 4px solid var(--red);
+    }
+
+    .response-box p {
+      margin-top: 5px;
+
+      color: var(--ink);
+
+      font-size: 13px;
+
+      word-break: break-word;
+    }
+
+    .check-error {
+      display: none;
+
+      margin-top: 20px;
+
+      padding: 14px;
+
+      border-radius: 9px;
+
+      background: #fff1f1;
+
+      color: var(--red);
+
+      font-size: 13px;
+
+      font-weight: 600;
+    }
+
+    .check-error.show {
+      display: block;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      padding: 45px 0;
+
+      background: var(--blue-dark);
+
+      color: white;
+    }
+
+    .footer-content {
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 30px;
+    }
+
+    footer h3 {
+      font-family: "Plus Jakarta Sans", sans-serif;
+
+      margin-bottom: 7px;
+    }
+
+    footer p {
+      color: rgba(255,255,255,.6);
+
+      font-size: 13px;
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 800px) {
+
+      .navbar {
+        padding: 0 18px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      #navMenu {
+        position: absolute;
+
+        top: 76px;
+        left: 0;
+
+        width: 100%;
+
+        display: none;
+
+        flex-direction: column;
+
+        gap: 0;
+
+        padding: 15px 20px 20px;
+
+        background: var(--blue);
+      }
+
+      #navMenu.open {
+        display: flex;
+      }
+
+      #navMenu a {
+        width: 100%;
+
+        padding: 13px 5px;
+      }
+
+      .nav-service,
+      .nav-admin {
+        margin-top: 8px;
+
+        text-align: center;
+      }
+
+      .complaint-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+
+        gap: 0;
+      }
+
+      .page-header {
+        min-height: 320px;
+      }
+
+      .page-header-content {
+        padding: 60px 0;
+      }
+
+      .check-input {
+        flex-direction: column;
+      }
+
+      .check-input button {
+        padding: 13px;
+      }
+
+      .check-details {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .status-header {
+        gap: 15px;
+
+        align-items: flex-start;
+
+        flex-direction: column;
+      }
+
+      .token-wrapper {
+        flex-wrap: wrap;
+      }
+
+      .footer-content {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      .container {
+        width: min(100% - 30px, 1120px);
+      }
+
+      .brand small {
+        display: none;
+      }
+
+      .official-logo {
+        width: 36px;
+        height: 36px;
+      }
+
+      .brand strong {
+        font-size: 14px;
+      }
+
+      .info-box,
+      .form-box,
+      .check-box {
+        padding: 25px 20px;
+      }
+
+      .page-header h1 {
+        font-size: 38px;
+      }
+
+      .check-details {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+
+  <header class="navbar">
+
+    <a href="index.html" class="brand">
+
+      <img
+        class="official-logo"
+        src="logo-kabupaten-sambas.png"
+        alt="Lambang Kabupaten Sambas"
+      >
+
+      <span>
+        <strong>Desa Semparuk</strong>
+        <small>Kec. Semparuk, Kab. Sambas</small>
+      </span>
+
+    </a>
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="Buka menu"
+    >
+      ☰
+    </button>
+
+    <nav id="navMenu">
+
+      <a href="index.html">
+        Beranda
+      </a>
+
+      <a href="tentang.html">
+        Tentang
+      </a>
+
+      <a href="galeri.html">
+        Galeri
+      </a>
+
+      <a href="berita.html">
+        Berita
+      </a>
+
+      <a href="peta.html">
+        Peta
+      </a>
+
+      <a href="pengaduan.html" class="nav-service">
+        📢 Layanan Warga
+      </a>
+
+      <a href="login.html" class="nav-admin">
+        🛠️ Admin
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <!-- ================= HEADER ================= -->
+
+  <section class="page-header">
+
+    <div class="container">
+
+      <div class="page-header-content">
+
+        <div class="eyebrow">
+          Layanan Publik Desa Semparuk
+        </div>
+
+        <h1>
+          Sampaikan <span>Pengaduan</span>
+        </h1>
+
+        <p>
+          Sampaikan keluhan, laporan, atau masukan mengenai
+          pelayanan dan kondisi lingkungan Desa Semparuk.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= FORM ================= -->
+
+  <section class="complaint-section">
+
+    <div class="container">
+
+      <div class="complaint-grid">
+
+        <!-- INFO -->
+
+        <div class="info-box">
+
+          <h2>
+            Layanan Warga
+          </h2>
+
+          <p>
+            Gunakan layanan ini untuk menyampaikan
+            pengaduan kepada Pemerintah Desa Semparuk.
+          </p>
+
+          <ul class="info-list">
+
+            <li>
+              <span class="info-number">1</span>
+
+              <span>
+                Isi data diri dan informasi pengaduan
+                dengan benar.
+              </span>
+            </li>
+
+            <li>
+              <span class="info-number">2</span>
+
+              <span>
+                Jelaskan masalah secara jelas dan lengkap.
+              </span>
+            </li>
+
+            <li>
+              <span class="info-number">3</span>
+
+              <span>
+                Simpan token pengaduan setelah laporan
+                berhasil dikirim.
+              </span>
+            </li>
+
+            <li>
+              <span class="info-number">4</span>
+
+              <span>
+                Gunakan token tersebut untuk mengecek
+                perkembangan laporan.
+              </span>
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <!-- FORM -->
+
+        <div class="form-box">
+
+          <h2>
+            Sampaikan Pengaduan
+          </h2>
+
+          <p class="form-description">
+            Lengkapi formulir berikut untuk mengirimkan
+            pengaduan kepada Desa Semparuk.
+          </p>
+
+
+          <form id="complaintForm">
+
+            <div class="form-row">
+
+              <div class="form-group">
+
+                <label for="nama">
+                  Nama Lengkap
+                </label>
+
+                <input
+                  type="text"
+                  id="nama"
+                  name="nama"
+                  placeholder="Masukkan nama lengkap"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="kontak">
+                  Email / No. WhatsApp
+                </label>
+
+                <input
+                  type="text"
+                  id="kontak"
+                  name="kontak"
+                  placeholder="Contoh: 08xxxxxxxxxx"
+                  required
+                >
+
+              </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="kategori">
+                Kategori Pengaduan
+              </label>
+
+              <select
+                id="kategori"
+                name="kategori"
+                required
+              >
+
+                <option value="">
+                  Pilih kategori
+                </option>
+
+                <option value="Infrastruktur">
+                  Infrastruktur
+                </option>
+
+                <option value="Kebersihan">
+                  Kebersihan
+                </option>
+
+                <option value="Keamanan">
+                  Keamanan
+                </option>
+
+                <option value="Pelayanan Desa">
+                  Pelayanan Desa
+                </option>
+
+                <option value="Lingkungan">
+                  Lingkungan
+                </option>
+
+                <option value="Fasilitas Umum">
+                  Fasilitas Umum
+                </option>
+
+                <option value="Lainnya">
+                  Lainnya
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="judul">
+                Judul Pengaduan
+              </label>
+
+              <input
+                type="text"
+                id="judul"
+                name="judul"
+                placeholder="Contoh: Lampu jalan mati"
+                required
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="isi">
+                Isi Pengaduan
+              </label>
+
+              <textarea
+                id="isi"
+                name="isi"
+                placeholder="Jelaskan pengaduan atau masalah yang ingin disampaikan..."
+                required
+              ></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="lokasi">
+                Lokasi
+              </label>
+
+              <input
+                type="text"
+                id="lokasi"
+                name="lokasi"
+                placeholder="Contoh: Dusun Semparuk"
+                required
+              >
+
+            </div>
+
+
+            <button
+              type="submit"
+              class="submit-btn"
+              id="submitBtn"
+            >
+              📢 Kirim Pengaduan
+            </button>
+
+          </form>
+
+
+          <!-- MESSAGE -->
+
+          <div
+            id="formMessage"
+            class="form-message"
+          ></div>
+
+
+          <!-- ================= TOKEN ================= -->
+
+          <div
+            class="result-box"
+            id="resultBox"
+          >
+
+            <h3>
+              ✓ Pengaduan Berhasil Dibuat
+            </h3>
+
+            <p>
+              Simpan token berikut. Token digunakan
+              untuk mengecek perkembangan pengaduan Anda.
+            </p>
+
+
+            <div class="token-wrapper">
+
+              <span
+                class="result-code"
+                id="resultCode"
+              >
+                -
+              </span>
+
+              <button
+                class="copy-btn"
+                id="copyBtn"
+                type="button"
+              >
+                📋 Salin
+              </button>
+
+            </div>
+
+
+            <p
+              class="copy-message"
+              id="copyMessage"
+            >
+              ✓ Token berhasil disalin
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= CEK PENGADUAN ================= -->
+
+  <section
+    class="check-section"
+    id="cek-pengaduan"
+  >
+
+    <div class="container">
+
+      <div class="check-box">
+
+        <div class="check-heading">
+
+          <div class="eyebrow">
+            STATUS LAPORAN
+          </div>
+
+          <h2>
+            Cek Pengaduan
+          </h2>
+
+          <p>
+            Masukkan token pengaduan yang Anda dapatkan
+            setelah mengirim laporan.
+          </p>
+
+        </div>
+
+
+        <form id="checkForm">
+
+          <div class="check-input">
+
+            <input
+              type="text"
+              id="checkToken"
+              placeholder="Contoh: PGD-20260918-A7K9M2"
+              autocomplete="off"
+              required
+            >
+
+            <button
+              type="submit"
+              id="checkBtn"
+            >
+              🔍 Cek Status
+            </button>
+
+          </div>
+
+        </form>
+
+
+        <!-- ================= HASIL CEK ================= -->
+
+        <div
+          id="checkResult"
+          class="check-result"
+        >
+
+          <div class="status-header">
+
+            <div>
+
+              <small>
+                Token Pengaduan
+              </small>
+
+              <strong id="checkCode">
+                -
+              </strong>
+
+            </div>
+
+            <span
+              id="checkStatus"
+              class="status-badge"
+            >
+              -
+            </span>
+
+          </div>
+
+
+          <div class="check-details">
+
+            <div>
+
+              <small>
+                Nama
+              </small>
+
+              <strong id="checkName">
+                -
+              </strong>
+
+            </div>
+
+
+            <div>
+
+              <small>
+                Kategori
+              </small>
+
+              <strong id="checkCategory">
+                -
+              </strong>
+
+            </div>
+
+
+            <div>
+
+              <small>
+                Judul
+              </small>
+
+              <strong id="checkTitle">
+                -
+              </strong>
+
+            </div>
+
+
+            <div>
+
+              <small>
+                Tanggal
+              </small>
+
+              <strong id="checkDate">
+                -
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          <div class="response-box">
+
+            <small>
+              Tanggapan Desa
+            </small>
+
+            <p id="checkResponse">
+              Belum ada tanggapan.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- ERROR -->
+
+        <div
+          id="checkError"
+          class="check-error"
+        >
+          Token pengaduan tidak ditemukan.
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-content">
+
+        <div>
+
+          <h3>
+            Desa Semparuk
+          </h3>
+
+          <p>
+            Kec. Semparuk, Kab. Sambas,
+            Kalimantan Barat
+          </p>
+
+        </div>
+
+        <div>
+
+          <p>
+            Layanan Warga Desa Semparuk
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- ================= SCRIPT ================= -->
+
+  <script>
+
+    /* =====================================================
+       GOOGLE APPS SCRIPT DATABASE
+       ===================================================== */
+
+    const API_URL =
+      "https://script.google.com/macros/s/AKfycbzb8sY19UCUnE7KJVV6SLT5DoL0AQ9KMxTOMSBghIYG3V-mpYapmnixVfuaXI5xHkYj/exec";
+
+
+    /* ================= MENU ================= */
+
+    const menuToggle =
+      document.getElementById("menuToggle");
+
+    const navMenu =
+      document.getElementById("navMenu");
+
+
+    menuToggle.addEventListener("click", () => {
+
+      navMenu.classList.toggle("open");
+
+    });
+
+
+    /* =====================================================
+       NAVBAR ACTIVE PAGE
+       ===================================================== */
+
+    function setActiveNavbar() {
+
+      const navLinks =
+        document.querySelectorAll("#navMenu a");
+
+      let currentPage =
+        window.location.pathname
+          .split("/")
+          .pop();
+
+      /*
+       * Jika halaman dibuka melalui:
+       * https://domain.com/
+       *
+       * maka dianggap index.html
+       */
+
+      if (!currentPage) {
+        currentPage = "index.html";
+      }
+
+      navLinks.forEach(link => {
+
+        const href =
+          link.getAttribute("href");
+
+        if (!href) return;
+
+        const linkPage =
+          href.split("/").pop();
+
+        if (linkPage === currentPage) {
+
+          link.classList.add("active");
+
+        } else {
+
+          link.classList.remove("active");
+
+        }
+
+      });
+
+    }
+
+
+    setActiveNavbar();
+
+
+    /* =====================================================
+       ELEMENT FORM
+       ===================================================== */
+
+    const complaintForm =
+      document.getElementById("complaintForm");
+
+    const submitBtn =
+      document.getElementById("submitBtn");
+
+    const resultBox =
+      document.getElementById("resultBox");
+
+    const resultCode =
+      document.getElementById("resultCode");
+
+    const formMessage =
+      document.getElementById("formMessage");
+
+
+    /* =====================================================
+       MESSAGE HELPER
+       ===================================================== */
+
+    function showFormMessage(message, type) {
+
+      formMessage.textContent =
+        message;
+
+      formMessage.className =
+        "form-message show " + type;
+
+    }
+
+
+    function hideFormMessage() {
+
+      formMessage.className =
+        "form-message";
+
+      formMessage.textContent =
+        "";
+
+    }
+
+
+    /* =====================================================
+       SUBMIT PENGADUAN
+       ===================================================== */
+
+    complaintForm.addEventListener(
+      "submit",
+      async function(event) {
+
+        event.preventDefault();
+
+        hideFormMessage();
+
+        resultBox.classList.remove("show");
+
+        submitBtn.disabled = true;
+
+        submitBtn.textContent =
+          "Mengirim pengaduan...";
+
+
+        try {
+
+          const formData =
+            new URLSearchParams();
+
+
+          formData.append(
+            "action",
+            "tambah"
+          );
+
+
+          formData.append(
+            "nama",
+            document.getElementById("nama").value.trim()
+          );
+
+
+          formData.append(
+            "kontak",
+            document.getElementById("kontak").value.trim()
+          );
+
+
+          formData.append(
+            "kategori",
+            document.getElementById("kategori").value
+          );
+
+
+          formData.append(
+            "judul",
+            document.getElementById("judul").value.trim()
+          );
+
+
+          formData.append(
+            "isi",
+            document.getElementById("isi").value.trim()
+          );
+
+
+          formData.append(
+            "lokasi",
+            document.getElementById("lokasi").value.trim()
+          );
+
+
+          const response =
+            await fetch(
+              API_URL,
+              {
+                method: "POST",
+
+                headers: {
+                  "Content-Type":
+                    "application/x-www-form-urlencoded;charset=UTF-8"
+                },
+
+                body: formData.toString()
+              }
+            );
+
+
+          if (!response.ok) {
+
+            throw new Error(
+              "Server mengembalikan error."
+            );
+
+          }
+
+
+          const data =
+            await response.json();
+
+
+          if (
+            !data ||
+            data.success !== true
+          ) {
+
+            throw new Error(
+              data && data.message
+                ? data.message
+                : "Pengaduan gagal disimpan."
+            );
+
+          }
+
+
+          const token =
+            data.data.kode;
+
+
+          resultCode.textContent =
+            token;
+
+
+          resultBox.classList.add(
+            "show"
+          );
+
+
+          complaintForm.reset();
+
+
+          showFormMessage(
+            "Pengaduan berhasil dikirim dan telah tersimpan di database.",
+            "success"
+          );
+
+
+          resultBox.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+
+
+        } catch (error) {
+
+          console.error(
+            "ERROR PENGADUAN:",
+            error
+          );
+
+
+          showFormMessage(
+            "Gagal mengirim pengaduan. Pastikan koneksi internet dan Google Apps Script sudah aktif.",
+            "error"
+          );
+
+
+        } finally {
+
+          submitBtn.disabled = false;
+
+          submitBtn.textContent =
+            "📢 Kirim Pengaduan";
+
+        }
+
+      }
+    );
+
+
+    /* =====================================================
+       COPY TOKEN
+       ===================================================== */
+
+    const copyBtn =
+      document.getElementById("copyBtn");
+
+    const copyMessage =
+      document.getElementById("copyMessage");
+
+
+    copyBtn.addEventListener(
+      "click",
+      async function() {
+
+        const token =
+          resultCode.textContent.trim();
+
+
+        if (
+          !token ||
+          token === "-"
+        ) {
+
+          return;
+
+        }
+
+
+        try {
+
+          await navigator.clipboard.writeText(
+            token
+          );
+
+
+          copyBtn.textContent =
+            "✓ Tersalin";
+
+          copyMessage.style.display =
+            "block";
+
+
+          setTimeout(() => {
+
+            copyBtn.textContent =
+              "📋 Salin";
+
+            copyMessage.style.display =
+              "none";
+
+          }, 1800);
+
+
+        } catch (error) {
+
+          const tempInput =
+            document.createElement("input");
+
+          tempInput.value =
+            token;
+
+          document.body.appendChild(
+            tempInput
+          );
+
+          tempInput.select();
+
+          document.execCommand("copy");
+
+          tempInput.remove();
+
+
+          copyBtn.textContent =
+            "✓ Tersalin";
+
+          copyMessage.style.display =
+            "block";
+
+
+          setTimeout(() => {
+
+            copyBtn.textContent =
+              "📋 Salin";
+
+            copyMessage.style.display =
+              "none";
+
+          }, 1800);
+
+        }
+
+      }
+    );
+
+
+    /* =====================================================
+       CEK PENGADUAN
+       ===================================================== */
+
+    const checkForm =
+      document.getElementById("checkForm");
+
+    const checkResult =
+      document.getElementById("checkResult");
+
+    const checkError =
+      document.getElementById("checkError");
+
+    const checkBtn =
+      document.getElementById("checkBtn");
+
+    const checkTokenInput =
+      document.getElementById("checkToken");
+
+
+    checkForm.addEventListener(
+      "submit",
+      async function(event) {
+
+        event.preventDefault();
+
+
+        const token =
+          checkTokenInput.value
+            .trim()
+            .toUpperCase();
+
+
+        if (!token) {
+
+          return;
+
+        }
+
+
+        checkResult.classList.remove(
+          "show"
+        );
+
+        checkError.classList.remove(
+          "show"
+        );
+
+
+        checkBtn.disabled = true;
+
+        checkBtn.textContent =
+          "Mengecek...";
+
+
+        try {
+
+          const url =
+            API_URL +
+            "?action=cek&kode=" +
+            encodeURIComponent(token) +
+            "&t=" +
+            Date.now();
+
+
+          const response =
+            await fetch(
+              url,
+              {
+                method: "GET",
+                cache: "no-store"
+              }
+            );
+
+
+          if (!response.ok) {
+
+            throw new Error(
+              "Server tidak dapat dihubungi."
+            );
+
+          }
+
+
+          const data =
+            await response.json();
+
+
+          if (
+            !data ||
+            data.success !== true ||
+            !data.data
+          ) {
+
+            checkError.textContent =
+              data && data.message
+                ? data.message
+                : "Token pengaduan tidak ditemukan.";
+
+
+            checkError.classList.add(
+              "show"
+            );
+
+            return;
+
+          }
+
+
+          const complaint =
+            data.data;
+
+
+          /* ================= DATA ================= */
+
+          document.getElementById(
+            "checkCode"
+          ).textContent =
+            complaint.kode ||
+            token;
+
+
+          document.getElementById(
+            "checkName"
+          ).textContent =
+            complaint.nama ||
+            "-";
+
+
+          document.getElementById(
+            "checkCategory"
+          ).textContent =
+            complaint.kategori ||
+            "-";
+
+
+          document.getElementById(
+            "checkTitle"
+          ).textContent =
+            complaint.judul ||
+            "-";
+
+
+          document.getElementById(
+            "checkDate"
+          ).textContent =
+            complaint.tanggal ||
+            "-";
+
+
+          /* ================= STATUS ================= */
+
+          const statusElement =
+            document.getElementById(
+              "checkStatus"
+            );
+
+
+          const status =
+            complaint.status ||
+            "Baru";
+
+
+          statusElement.textContent =
+            status;
+
+
+          statusElement.className =
+            "status-badge";
+
+
+          const statusClass =
+            status
+              .toLowerCase()
+              .replace(/\s+/g, "-");
+
+
+          statusElement.classList.add(
+            statusClass
+          );
+
+
+          /* ================= TANGGAPAN ================= */
+
+          document.getElementById(
+            "checkResponse"
+          ).textContent =
+            complaint.tanggapan ||
+            "Belum ada tanggapan.";
+
+
+          /* ================= SHOW ================= */
+
+          checkResult.classList.add(
+            "show"
+          );
+
+
+          checkResult.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+
+
+        } catch (error) {
+
+          console.error(
+            "ERROR CEK PENGADUAN:",
+            error
+          );
+
+
+          checkError.textContent =
+            "Gagal menghubungi server. Pastikan Google Apps Script sudah dideploy sebagai Web App dan dapat diakses siapa saja.";
+
+
+          checkError.classList.add(
+            "show"
+          );
+
+
+        } finally {
+
+          checkBtn.disabled = false;
+
+          checkBtn.textContent =
+            "🔍 Cek Status";
+
+        }
+
+      }
+    );
+
+
+    /* =====================================================
+       INPUT TOKEN
+       ===================================================== */
+
+    checkTokenInput.addEventListener(
+      "input",
+      function() {
+
+        this.value =
+          this.value.toUpperCase();
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>
