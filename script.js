@@ -1,253 +1,363 @@
-const navMenu = document.getElementById("navMenu");
-const menuToggle = document.getElementById("menuToggle");
-const topBtn = document.getElementById("topBtn");
-const notice = document.getElementById("notice");
+/* ========================================
+   NAVBAR
+======================================== */
 
-menuToggle.addEventListener("click", () => {
-  navMenu.classList.toggle("open");
-});
+const menuToggle = document.querySelector(".menu-toggle");
+const navMenu = document.querySelector("#navMenu");
 
-document.querySelectorAll("nav a").forEach(link => {
-  link.addEventListener("click", () => navMenu.classList.remove("open"));
-});
 
-window.addEventListener("scroll", () => {
-  topBtn.classList.toggle("show", window.scrollY > 500);
-});
+/* ========================================
+   MOBILE MENU
+======================================== */
 
-topBtn.addEventListener("click", () => {
-  window.scrollTo({top:0, behavior:"smooth"});
-});
+if (menuToggle && navMenu) {
 
-document.getElementById("year").textContent = new Date().getFullYear();
+  menuToggle.addEventListener("click", function (event) {
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add("visible");
-      observer.unobserve(entry.target);
-    }
+    event.stopPropagation();
+
+    navMenu.classList.toggle("open");
+
+    const isOpen =
+      navMenu.classList.contains("open");
+
+    menuToggle.setAttribute(
+      "aria-expanded",
+      isOpen ? "true" : "false"
+    );
+
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Tutup menu" : "Buka menu"
+    );
+
   });
-}, {threshold:0.12});
 
-document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-const sections = document.querySelectorAll("main section[id]");
-const links = document.querySelectorAll("nav a");
+  /* Tutup menu setelah link diklik */
 
-window.addEventListener("scroll", () => {
-  let current = "beranda";
-  sections.forEach(section => {
-    const top = section.offsetTop - 120;
-    if(window.scrollY >= top) current = section.id;
+  const navLinks =
+    navMenu.querySelectorAll("a");
+
+  navLinks.forEach(function (link) {
+
+    link.addEventListener("click", function () {
+
+      navMenu.classList.remove("open");
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      menuToggle.setAttribute(
+        "aria-label",
+        "Buka menu"
+      );
+
+    });
+
   });
-  links.forEach(link => {
-    link.classList.toggle("active", link.getAttribute("href") === "#" + current);
-  });
-});
-
-function showNotice(){
-  notice.classList.add("show");
-  setTimeout(() => notice.classList.remove("show"), 2800);
-}
-
-document.addEventListener("DOMContentLoaded", () => {
 
 
-  /* ========================================
-     MOBILE MENU
-  ======================================== */
+  /* Tutup menu jika klik di luar navbar */
 
-  const menuToggle =
-    document.getElementById("menuToggle");
+  document.addEventListener(
+    "click",
+    function (event) {
 
-  const navMenu =
-    document.getElementById("navMenu");
+      const navbar =
+        document.querySelector(".navbar");
 
+      if (!navbar) return;
 
-  if (menuToggle && navMenu) {
+      if (!navbar.contains(event.target)) {
 
-    menuToggle.addEventListener(
-      "click",
-      () => {
+        navMenu.classList.remove("open");
 
-        navMenu.classList.toggle("open");
-
-        const isOpen =
-          navMenu.classList.contains("open");
-
+        menuToggle.setAttribute(
+          "aria-expanded",
+          "false"
+        );
 
         menuToggle.setAttribute(
           "aria-label",
-          isOpen
-            ? "Tutup menu"
-            : "Buka menu"
+          "Buka menu"
         );
 
       }
-    );
+
+    }
+  );
+
+}
 
 
-    const navLinks =
-      navMenu.querySelectorAll("a");
+/* ========================================
+   BACK TO TOP
+======================================== */
+
+const topBtn =
+  document.getElementById("topBtn");
 
 
-    navLinks.forEach(link => {
+if (topBtn) {
 
-      link.addEventListener(
-        "click",
-        () => {
+  window.addEventListener(
+    "scroll",
+    function () {
 
-          navMenu.classList.remove("open");
+      if (window.scrollY > 500) {
 
-          menuToggle.setAttribute(
-            "aria-label",
-            "Buka menu"
-          );
+        topBtn.classList.add("show");
 
-        }
-      );
+      } else {
 
-    });
-
-  }
-
-
-  /* ========================================
-     YEAR
-  ======================================== */
-
-  const year =
-    document.getElementById("year");
-
-
-  if (year) {
-
-    year.textContent =
-      new Date().getFullYear();
-
-  }
-
-
-  /* ========================================
-     SCROLL REVEAL
-  ======================================== */
-
-  const revealElements =
-    document.querySelectorAll(".reveal");
-
-
-  if ("IntersectionObserver" in window) {
-
-    const observer =
-      new IntersectionObserver(
-        entries => {
-
-          entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-              entry.target.classList.add(
-                "active"
-              );
-
-              observer.unobserve(
-                entry.target
-              );
-
-            }
-
-          });
-
-        },
-        {
-          threshold: 0.12
-        }
-      );
-
-
-    revealElements.forEach(element => {
-
-      observer.observe(element);
-
-    });
-
-  } else {
-
-    revealElements.forEach(element => {
-
-      element.classList.add("active");
-
-    });
-
-  }
-
-
-  /* ========================================
-     BACK TO TOP
-  ======================================== */
-
-  const topBtn =
-    document.getElementById("topBtn");
-
-
-  if (topBtn) {
-
-    window.addEventListener(
-      "scroll",
-      () => {
-
-        if (window.scrollY > 500) {
-
-          topBtn.classList.add("show");
-
-        } else {
-
-          topBtn.classList.remove("show");
-
-        }
+        topBtn.classList.remove("show");
 
       }
-    );
+
+    }
+  );
 
 
-    topBtn.addEventListener(
-      "click",
-      () => {
+  topBtn.addEventListener(
+    "click",
+    function () {
 
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    }
+  );
+
+}
+
+
+/* ========================================
+   YEAR
+======================================== */
+
+const year =
+  document.getElementById("year");
+
+
+if (year) {
+
+  year.textContent =
+    new Date().getFullYear();
+
+}
+
+
+/* ========================================
+   SCROLL REVEAL
+======================================== */
+
+const revealElements =
+  document.querySelectorAll(".reveal");
+
+
+if ("IntersectionObserver" in window) {
+
+  const observer =
+    new IntersectionObserver(
+      function (entries) {
+
+        entries.forEach(function (entry) {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add(
+              "visible"
+            );
+
+            observer.unobserve(
+              entry.target
+            );
+
+          }
+
         });
 
+      },
+      {
+        threshold: 0.12
       }
     );
 
+
+  revealElements.forEach(function (element) {
+
+    observer.observe(element);
+
+  });
+
+} else {
+
+  revealElements.forEach(function (element) {
+
+    element.classList.add("visible");
+
+  });
+
+}
+
+
+/* ========================================
+   NOTICE
+======================================== */
+
+const notice =
+  document.getElementById("notice");
+
+
+function showNotice() {
+
+  if (!notice) return;
+
+  notice.classList.add("show");
+
+  setTimeout(function () {
+
+    notice.classList.remove("show");
+
+  }, 2800);
+
+}
+
+
+/* ========================================
+   ACTIVE NAVBAR
+======================================== */
+
+function setActiveNavbar() {
+
+  /*
+     HTML menggunakan:
+     <nav id="navMenu">
+  */
+
+  const links =
+    document.querySelectorAll(
+      "#navMenu a"
+    );
+
+
+  let currentPage =
+    window.location.pathname
+      .split("/")
+      .pop();
+
+
+  /*
+     Jika membuka website melalui
+     domain utama tanpa index.html
+  */
+
+  if (!currentPage) {
+
+    currentPage = "index.html";
+
   }
 
-});
 
-document.addEventListener("DOMContentLoaded", () => {
-    const menuToggle = document.getElementById("menuToggle");
-    const navMenu = document.getElementById("navMenu");
+  /*
+     Jika URL berakhir dengan /
+     anggap sebagai index.html
+  */
 
-    if (!menuToggle || !navMenu) {
-        console.error("Navbar tidak ditemukan!");
-        return;
+  if (
+    currentPage === "" ||
+    currentPage === "/"
+  ) {
+
+    currentPage = "index.html";
+
+  }
+
+
+  links.forEach(function (link) {
+
+    const href =
+      link.getAttribute("href");
+
+
+    if (!href) return;
+
+
+    /*
+       Abaikan anchor seperti #tentang
+    */
+
+    if (href.startsWith("#")) return;
+
+
+    const linkPage =
+      href.split("/").pop();
+
+
+    if (linkPage === currentPage) {
+
+      link.classList.add("active");
+
+    } else {
+
+      link.classList.remove("active");
+
     }
 
-    menuToggle.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
-        menuToggle.classList.toggle("active");
-    });
+  });
 
-    // Tutup menu ketika link diklik
-    const navLinks = navMenu.querySelectorAll("a");
+}
 
-    navLinks.forEach(link => {
-        link.addEventListener("click", () => {
-            navMenu.classList.remove("active");
-            menuToggle.classList.remove("active");
-        });
-    });
-});
+
+/* Jalankan setelah halaman siap */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function () {
+
+    setActiveNavbar();
+
+  }
+);
+
+
+/* ========================================
+   RESET MENU SAAT RESIZE
+======================================== */
+
+window.addEventListener(
+  "resize",
+  function () {
+
+    /*
+       Jika kembali ke desktop,
+       tutup menu mobile.
+    */
+
+    if (
+      window.innerWidth > 850 &&
+      navMenu &&
+      menuToggle
+    ) {
+
+      navMenu.classList.remove("open");
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      menuToggle.setAttribute(
+        "aria-label",
+        "Buka menu"
+      );
+
+    }
+
+  }
+);

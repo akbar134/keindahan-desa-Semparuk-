@@ -1517,7 +1517,7 @@ footer {
 
     border: none;
 
-    background: transparent;
+    background: none;
 
     color: #fff;
 
@@ -1526,12 +1526,14 @@ footer {
     cursor: pointer;
 
     padding: 8px;
-
-    -webkit-tap-highlight-color: transparent;
   }
 
   /*
      MENU MOBILE
+     
+     Hanya mengganti #navMenu
+     menjadi #navMenu agar sesuai
+     dengan HTML asli.
   */
 
   #navMenu {
@@ -1571,12 +1573,12 @@ footer {
 
     z-index: 10000;
 
-    /*
-      penting supaya menu tidak
-      terpotong oleh parent
-    */
     isolation: isolate;
   }
+
+  /*
+     MENU TERBUKA
+  */
 
   #navMenu.open {
     display: flex;
@@ -1586,7 +1588,7 @@ footer {
      SEMUA LINK MOBILE
   */
 
-  #navMenu a {
+  #navMenu .nav-link {
     position: relative;
 
     display: block;
@@ -1616,7 +1618,7 @@ footer {
     -webkit-tap-highlight-color: transparent;
   }
 
-  #navMenu a:hover {
+  #navMenu .nav-link:hover {
     color: var(--red) !important;
   }
 
@@ -1625,7 +1627,7 @@ footer {
   */
 
   #navMenu
-  a:not(.nav-service):not(.nav-admin)::after {
+  .nav-link:not(.nav-service):not(.nav-admin)::after {
 
     content: "";
 
@@ -1647,10 +1649,10 @@ footer {
   }
 
   #navMenu
-  a:not(.nav-service):not(.nav-admin):hover::after,
+  .nav-link:not(.nav-service):not(.nav-admin):hover::after,
 
   #navMenu
-  a:not(.nav-service):not(.nav-admin).active::after {
+  .nav-link:not(.nav-service):not(.nav-admin).active::after {
 
     width: calc(100% - 16px);
   }
